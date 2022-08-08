@@ -1,0 +1,20 @@
+.app {
+  text-align: center;
+  height: 100%;
+}
+
+.pipa-app {
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.pipa-app__container-search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.pipa-app__container-search__item {
+  width: 100%;
+  padding: 10px;
+}
