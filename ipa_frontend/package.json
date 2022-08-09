@@ -8,6 +8,7 @@
     "@axa-ch/heading": "^5.0.3",
     "@axa-ch/input-text": "^6.1.0",
     "@axa-ch/modal": "^4.0.3",
+    "@axa-ch/table": "^5.0.3",
     "@axa-ch/text": "^6.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -43,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.54.3"
   }
 }
