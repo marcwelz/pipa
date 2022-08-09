@@ -11,6 +11,8 @@ import { useState } from 'react';
 function App() {
   const [isModalOpen, setModalOpen] = useState(false)
 
+  
+
   return (
     <div className="app">
       <Header></Header>
@@ -46,7 +48,7 @@ function App() {
                   <th>Stage</th>
                   <th>German</th>
                   <th>French</th>
-                  <th>Italian</th>
+                  <th>Italian</th>``
                   <th>English</th>
                   <th></th>
                 </tr>

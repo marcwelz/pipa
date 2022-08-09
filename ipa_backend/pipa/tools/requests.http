@@ -1,0 +1,41 @@
+### GET ALL ENTRIES
+GET {{host}}/{{requestmapping}}
+Content-Type: application/json
+
+### POST NEW ENTRY
+POST {{host}}/{{requestmapping}}
+Content-Type: application/json
+
+{
+  "appId": "OPC",
+  "textId": "com.axa.ch.sgpc.opc.features",
+  "content": "OPC-ADMIN",
+  "stage": "ACC",
+  "german": "Hallo",
+  "english": "Hello",
+  "french": "Bonjour",
+  "italian": "Buongiorno",
+  "translated": true,
+  "lastModified": "2022-08-05T14:32:26.968246"
+}
+
+### UPDATE ENTRY
+PUT {{host}}/{{requestmapping}}/1
+Content-Type: application/json
+
+{
+  "id": "1",
+  "appId": "OPC",
+  "textId": "com.axa.ch.sgpc.opc.features",
+  "content": "OPC-ADMIN",
+  "stage": "ACC",
+  "german": "Hallo",
+  "english": "Hello",
+  "french": "Bonjour",
+  "italian": "Buongiorno",
+  "translated": true,
+  "lastModified": "2022-08-05T14:32:26.968246"
+}
+
+### DELETE ENTRY
+DELETE {{host}}/{{requestmapping}}/2
