@@ -11,30 +11,28 @@ Content-Type: application/json
   "textId": "com.axa.ch.sgpc.opc.features",
   "content": "OPC-ADMIN",
   "stage": "ACC",
-  "german": "Hallo",
-  "english": "Hello",
-  "french": "Bonjour",
-  "italian": "Buongiorno",
-  "translated": true,
-  "lastModified": "2022-08-05T14:32:26.968246"
+  "german": "Auf Wiedersehen",
+  "english": "Goodbye",
+  "french": "Au revoir",
+  "italian": "Arrivederci"
 }
 
 ### UPDATE ENTRY
-PUT {{host}}/{{requestmapping}}/1
+PUT {{host}}/{{requestmapping}}/2
 Content-Type: application/json
 
 {
-  "id": "1",
+  "id": "2",
   "appId": "OPC",
   "textId": "com.axa.ch.sgpc.opc.features",
   "content": "OPC-ADMIN",
-  "stage": "ACC",
+  "stage": "DEV",
   "german": "Hallo",
   "english": "Hello",
   "french": "Bonjour",
   "italian": "Buongiorno",
   "translated": true,
-  "lastModified": "2022-08-05T14:32:26.968246"
+  "lastModified": null
 }
 
 ### DELETE ENTRY

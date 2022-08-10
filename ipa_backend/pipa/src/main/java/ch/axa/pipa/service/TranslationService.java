@@ -5,6 +5,7 @@ import ch.axa.pipa.repository.TranslationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,11 +22,13 @@ public class TranslationService {
     }
 
     public void createTranslationEntity(TranslationEntry entry) {
+        entry.setLastModified(LocalDateTime.now());
         repository.save(entry);
     }
 
     public TranslationEntry updateTranslationEntry(int id, TranslationEntry entry) {
         deleteTranslationEntry(id);
+        entry.setLastModified(LocalDateTime.now());
         return repository.save(entry);
     }
 

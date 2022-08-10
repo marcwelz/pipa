@@ -23,7 +23,6 @@ public class TranslationController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TranslationEntry> getAllTranslationEntries() {
-        System.out.println(LocalDateTime.now());
         return service.getAllTranslationEntries();
     }
 
@@ -34,6 +33,7 @@ public class TranslationController {
 
     @PutMapping(value = REQUEST_PARAM_TEXT_ID, produces = MediaType.APPLICATION_JSON_VALUE)
     public TranslationEntry updateTranslationEntry(@NotBlank @PathVariable int id, @NotEmpty @Valid @RequestBody TranslationEntry entry) {
+        System.out.println("updateentry");
         return service.updateTranslationEntry(id, entry);
     }
 
