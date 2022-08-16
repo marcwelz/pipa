@@ -2,6 +2,17 @@
 GET {{host}}/{{requestmapping}}
 Content-Type: application/json
 
+### GET ALL ENTRIES
+GET {{host}}/{{requestmapping}}/search
+Content-Type: application/json
+
+{
+  "appId": null,
+  "context": null,
+  "textId": null,
+  "stage": "ACC"
+}
+
 ### POST NEW ENTRY
 POST {{host}}/{{requestmapping}}
 Content-Type: application/json

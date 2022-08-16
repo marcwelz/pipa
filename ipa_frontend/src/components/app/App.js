@@ -14,6 +14,7 @@ function App() {
   const [isModalCreateOpen, setModalCreateOpen] = useState(false)
   const [isModalUpdateOpen, setModalUpdateOpen] = useState(false)
   const [translations, setTranslations] = useState([])
+  const [filteredTranslations, setFilteredTranslations] = useState({})
   const [newTranslationValue, setNewTranslationValues] = useState({});
   const [toUpdateTranslationValue, setToUpdateTranslationValue] = useState({});
 
@@ -42,6 +43,25 @@ function App() {
     });
   }
 
+  function handleSearchButton() {
+    console.log(filteredTranslations)
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(filteredTranslations)
+    };
+
+    fetch(BASE_URL + "/search", requestOptions)
+    .then(response => response.json())
+    .then(
+        data => setTranslations(data)
+    )
+    .finally(() => {
+      setFilteredTranslations({})
+    })
+  }
+
   function handleSubmitCreateNewTranslation() {
     const requestOptions = {
       method: 'POST',
@@ -51,7 +71,7 @@ function App() {
     };
 
     fetch(BASE_URL, requestOptions)
-      .then(response => response.json())
+    .then(response => response.json())
       .then(
         data => {
           console.log(data)
@@ -68,8 +88,14 @@ function App() {
     setModalUpdateOpen(true)
   }
 
+  function handleSearchTranslationEntity(event) {
+    setFilteredTranslations(filteredTranslations => {
+      return {...filteredTranslations, [event.target.name]: event.target.value};
+    });
+    console.log(filteredTranslations.appId === "")
+  }
+
   function handleUpdateTranslationInput(event) {
-    console.log("handleUpdateTranslationInput")
     setToUpdateTranslationValue(toUpdateTranslationValue => {
       return {...toUpdateTranslationValue, [event.target.name]: event.target.value};
     });
@@ -115,19 +141,19 @@ function App() {
         <div className='pipa-app__container'>
           <div className='pipa-app__container-search'>
             <div className='pipa-app__container-search__item'>
-              <axa-input-text label="App-ID" placeholder="enter App-ID..."></axa-input-text>
+              <axa-input-text label="App-ID" name="appId" onKeyUp={e => handleSearchTranslationEntity(e)} placeholder="enter App-ID..."></axa-input-text>
             </div>
             <div className='pipa-app__container-search__item'>
-              <axa-input-text label="Context" placeholder="enter Context..."></axa-input-text>
+              <axa-input-text label="Context" name="context" onKeyUp={e => handleSearchTranslationEntity(e)} placeholder="enter Context..."></axa-input-text>
             </div>
             <div className='pipa-app__container-search__item'>
-              <axa-input-text label="Text-ID" placeholder="enter Text-ID..."></axa-input-text>
+              <axa-input-text label="Text-ID" name="textId" onKeyUp={e => handleSearchTranslationEntity(e)} placeholder="enter Text-ID..."></axa-input-text>
             </div>
             <div className='pipa-app__container-search__item'>
-              <axa-input-text label="Stage" placeholder="enter Stage..."></axa-input-text>
+              <axa-input-text label="Stage" name="stage" onKeyUp={e => handleSearchTranslationEntity(e)} placeholder="enter Stage..."></axa-input-text>
             </div>
             <div className='pipa-app__container-search__item' style={{marginTop:"34px"}}>
-              <axa-button type="button" icon="search">search</axa-button>
+              <axa-button type="button" icon="search" onClick={() => handleSearchButton()}>search</axa-button>
             </div>
             <div className='pipa-app__container-search__item' style={{marginTop:"34px"}}>
               <axa-button variant="red" icon="add" onClick={() => setModalCreateOpen(!isModalCreateOpen)}>add Translation</axa-button>

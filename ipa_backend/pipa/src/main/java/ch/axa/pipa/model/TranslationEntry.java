@@ -30,6 +30,6 @@ public class TranslationEntry implements Serializable {
     private String french;
     private String italian;
     private boolean translated;
-    private LocalDateTime lastModified;
+    private String lastModified;
 
 }
